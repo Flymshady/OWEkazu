@@ -17,6 +17,10 @@ const AppName = ({ email, username, name }) => {
     )
 };
 
+// hovno na políčku
+
+
+
 AppName.propTypes = {
     name: PropTypes.string,
 };
