@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FormLogin =({username, password, handleChange, handleSubmit}) => {
+
+
+const FormLogin =({username, password, handleOnChange, handleOnSubmit}) => {
+
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleOnSubmit}>
           <label className={'InputLabel'}>
 
           Uživatelské jméno:
-          <input className={'Input'} type="text" name="username" value={username} onChange={handleChange('username')}/>
+          <input className={'Input'} type="text" name="username" value={username} onChange={handleOnChange('username') }/>
       </label>
           <label className={'InputLabel'}>
              Heslo:
-              <input className={'Input'} type="password" name="password" value={password} onChange={handleChange('password')}/>
+              <input className={'Input'} type="password" name="password" value={password} onChange={handleOnChange('password')}/>
           </label>
           <button className={'Button'} type={'submit'}>Přihlásit</button>
 
@@ -22,7 +25,7 @@ const FormLogin =({username, password, handleChange, handleSubmit}) => {
 FormLogin.propTypes={
     username:PropTypes.string,
     password:PropTypes.string,
-    handleChange:PropTypes.func,
-    handleSubmit:PropTypes.func,
+    handleOnChange:PropTypes.func,
+    handleOnSubmit:PropTypes.func,
 }
 export default FormLogin;
