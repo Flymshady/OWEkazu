@@ -2,7 +2,10 @@ import React from 'react';
 
 const DEFAULT_STATE = {
     isAuthorized: false,
+    username: undefined,
+    email: undefined,
     setIsAuthorized: () => null,
+    setUser: () =>null,
 
 };
 
@@ -15,14 +18,22 @@ class UserProvider extends React.Component {
         this.setState({ isAuthorized: value })
     };
 
+    setUser = ({username, email}) => {
+        this.setState({username, email})
+    };
+
 
     render() {
         const { children } = this.props;
-        const { isAuthorized} = this.state;
+        const { isAuthorized, username, email} = this.state;
         return(
             <UserContext.Provider value={
+                {
+                    isAuthorized, username, email,
+                    setIsAuthorized: this.setIsAuthorized,
+                    setUser: this.setUser,
+                }
 
-                    this.state
 
             }>
                 { children }

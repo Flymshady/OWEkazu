@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const FormLogin =({username, password, handleChange, handleSubmit}) => {
     return (
-      <form onSu>
+      <form onSubmit={handleSubmit}>
           <label className={'InputLabel'}>
 
           Uživatelské jméno:
@@ -23,6 +23,6 @@ FormLogin.propTypes={
     username:PropTypes.string,
     password:PropTypes.string,
     handleChange:PropTypes.func,
-    handleSubmit:PropTypes.func
+    handleSubmit:PropTypes.func,
 }
 export default FormLogin;

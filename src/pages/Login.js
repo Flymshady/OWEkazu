@@ -1,12 +1,11 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
-import Content from "./LandingPage";
 import {loginUrl} from '../constants';
-import {UserContext} from '../context';
+import {UserContext} from '../context/UserContext';
+import {withRouter} from 'react-router';
 
 
 class Login extends React.Component{
-
     state={
         username: '',
         password: '',
@@ -19,13 +18,17 @@ class Login extends React.Component{
 
     handleOnSubmit =(event)=>{
         const {history} = this.props;
-        const {setIsAuthorized} =this.context;
+        const {setIsAuthorized, setUser} =this.context;
         event.preventDefault();
         fetch(loginUrl, {
             method: 'post',
+            headers: {"Content-type": "application/json",},
             body: JSON.stringify(this.state),})
             .then((res)=>res.json())
-            .then((data)=>{})
+            .then((userInfo)=>{setIsAuthorized(true);
+            setUser(userInfo);
+            history.push('/');
+            })
             .catch((e)=>console.log(e));
 
     }
@@ -47,4 +50,5 @@ class Login extends React.Component{
     }
 
 }
-export default Login;
+Login.contextType=UserContext;
+export default withRouter(Login)

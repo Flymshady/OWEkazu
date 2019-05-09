@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const AppName = ({ name }) => {
+const AppName = ({ email, username, name }) => {
     return (
         <div className={'Navbar-Heading'}>
             <span>{ name }</span>
+            <span>-</span>
+            {
+                username ? (
+                    <span>Aktuální Uživatel: {username}</span>
+                ) : (
+                    <span>Nepřihlášen</span>
+                )
+            }
         </div>
     )
 };

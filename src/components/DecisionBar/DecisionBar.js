@@ -7,7 +7,7 @@ const DecisionBar = () => {
         <div className={'FlexSpacer Padding10'}>
             {
                 buttonNames.map(
-                    (name) => <DecisionItem decisionName={name}/>
+                    (name) => <DecisionItem key={name} decisionName={name}/>
                 )
             }
         </div>
