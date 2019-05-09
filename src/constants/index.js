@@ -4,4 +4,4 @@ export const patientsUrl = 'https://owe2019.herokuapp.com/patient';
 
 export const resultUrl = 'https://owe2019.herokuapp.com/result';
 
-export const resultUrl = 'https://owe2019.herokuapp.com/login';
+export const loginUrl = 'https://owe2019.herokuapp.com/login';
