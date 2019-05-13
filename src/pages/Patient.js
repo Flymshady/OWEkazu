@@ -19,21 +19,13 @@ class Patient extends React.Component {
 
     render() {
         const {patient} = this.state;
-        const symptoms = patient.symptoms || {};
-        const personalData = patient.personalData || {};
-        const medicaments = patient.pharmaceuticals || [];
+        const personalData = patient.properties || [];
         return (
             <div>
                 <div className={'Content Grid'}>
                     <Section heading={'Osobní údaje'} body={
                         <PersonalData personalData={personalData}/>
                     }/>
-                    <Section heading={'Příznaky'} body={
-                        <Symptoms symptoms={symptoms}/>
-                    }/>
-                    <Section heading={'Medikamenty'} body={
-                        <Medicaments medicaments={medicaments}/>}
-                    />
                 </div>
                 <DecisionBar />
             </div>
