@@ -18,9 +18,9 @@ const PersonalData = ({personalData}) => {
             prom = personalData.map(function (val) {
                 if ((val.title != undefined) && (val.text != undefined)) {
                     if(val.exam==null){
-                    return val.title + val.text;
+                    return val.title + ': ' + val.text;
                 }}
-            }).join(' \n');
+            }).join('\n');
         prom2 = personalData.map(function (val) {
             if (val.title != undefined) {
                 if(val.exam==true){
@@ -49,7 +49,7 @@ const PersonalData = ({personalData}) => {
     return (
 
         <div>
-            <div>
+            <div id={"promDIV"}>
                 <h3>{prom}</h3>
 
             </div>

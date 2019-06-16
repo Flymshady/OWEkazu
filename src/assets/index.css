@@ -420,3 +420,7 @@ code {
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+#promDIV {
+    white-space: pre;
+}
