@@ -18,6 +18,8 @@ class App extends Component {
                         <Route path={'/login'} component={Login}/>
                         <ProtectedRoute path={'/patient'} component={Patient}/>
                         <ProtectedRoute path={'/result/:choice'} component={Result}/>
+
+                        <Route component={Page404} />
                     </Switch>
                 </BrowserRouter>
             </div>
@@ -25,5 +27,17 @@ class App extends Component {
         );
     }
 }
+
+const Page404 = ({ location }) => (
+        <div className={"poopy-browser"}>
+            <div className={"close"}></div>
+            <div className={"minimize"}></div>
+            <div className={"maximize"}></div>
+            <div className={"address-bar"}></div>
+            <div className={"x"}></div>
+
+            <h2>Nebyla nalezena stranka <code>{location.pathname}</code></h2>
+        </div>
+);
 
 export default App;

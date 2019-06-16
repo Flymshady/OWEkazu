@@ -4,21 +4,23 @@ import PropTypes from 'prop-types';
 
 
 const FormLogin =({username, password, handleOnChange, handleOnSubmit}) => {
-
     return (
-      <form onSubmit={handleOnSubmit}>
-          <label className={'InputLabel'}>
-
-          Uživatelské jméno:
-          <input className={'Input'} type="text" name="username" value={username} onChange={handleOnChange('username') }/>
-      </label>
-          <label className={'InputLabel'}>
-             Heslo:
-              <input className={'Input'} type="password" name="password" value={password} onChange={handleOnChange('password')}/>
-          </label>
-          <button className={'Button'} type={'submit'}>Přihlásit</button>
-
-      </form>
+        <div>
+            <div className="content">
+                <form onSubmit={handleOnSubmit} className={'login-form'}>
+                    <h3>Pro přístup do systému je nutné přihlásit se</h3>
+                    <div>
+                        <input type="text" name="username"  value={username} onChange={handleOnChange('username')} required={'true'}/>
+                            <label>Uživatelské jméno</label>
+                    </div>
+                    <div>
+                        <input type="password" name="password" value={password} onChange={handleOnChange('password')} required={'true'}/>
+                            <label>Heslo</label>
+                    </div>
+                    <input type="submit" name="" value="Submit"/>
+                </form>
+            </div>
+        </div>
     );
 }
 
