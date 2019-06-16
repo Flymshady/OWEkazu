@@ -7,7 +7,7 @@ body {
     font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(../images/owe_bg.png) no-repeat 50% 50% fixed;
+  /*background: url(../images/owe_bg.png) no-repeat 50% 50% fixed;*/
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -107,7 +107,7 @@ code {
 }
 
 .logo{
-    background-image: url("../images/llogo.png");
+    /*background-image: url("../images/llogo.png");*/
     background-size: contain;
     background-repeat: no-repeat;
     height: 100px;
@@ -419,4 +419,8 @@ code {
     -ms-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+#promDIV {
+    white-space: pre;
 }
