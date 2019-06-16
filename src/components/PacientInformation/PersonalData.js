@@ -13,6 +13,7 @@ const PersonalData = ({personalData}) => {
     var prom5= 0;
 
 
+
     for(let i in personalData) {
             prom = personalData.map(function (val) {
                 if ((val.title != undefined) && (val.text != undefined)) {

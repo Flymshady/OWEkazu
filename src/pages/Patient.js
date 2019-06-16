@@ -20,7 +20,8 @@ class Patient extends React.Component {
     render() {
         const {patient} = this.state;
         const personalData = patient.properties || [];
-        return (
+
+            return (
             <div>
                 <div className={'Content Grid'}>
                     <Section heading={'Osobní údaje'} body={
@@ -30,6 +31,7 @@ class Patient extends React.Component {
                 <DecisionBar />
             </div>
         );
+
     }
 }
 
