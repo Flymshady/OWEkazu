@@ -2,16 +2,15 @@ import React from 'react';
 
 
 const PersonalData = ({personalData}) => {
-    //let objects = JSON.parse(personalData);
-
-    //var obj = [personalData];
-    //obj.title = new String(obj.title);
 
     var prom = '';
-    var prom2= '';
-    var prom3= '';
-    var prom5= 0;
+    var titleExam= '';
+    var textExam= '';
     var vykresleni=true;
+    var ohodnoceni = true;
+    var pocetChyb = 0;
+    var znamka = '';
+
 
 
     for(let i in personalData) {
@@ -21,14 +20,13 @@ const PersonalData = ({personalData}) => {
                     return val.title + ': ' + val.text;
                 }}
             }).join('\n');
-        prom2 = personalData.map(function (val) {
+        titleExam = personalData.map(function (val) {
             if (val.title != undefined) {
                 if(val.exam==true){
-                    prom5++;
                     return val.title;
                 }}
         });
-        prom3 = personalData.map(function (val) {
+        textExam = personalData.map(function (val) {
             if ((val.title != undefined) && (val.text != undefined)) {
                 if(val.exam==true){
                     return val.text;
@@ -38,8 +36,8 @@ const PersonalData = ({personalData}) => {
     function clickButton()
     {
     if(vykresleni){
-        for (var i = 0; i < prom2.length; i++) {
-             if (prom2[i] != undefined) {document.getElementById("myDIV").innerHTML += "<button>" + prom2[i] + "</button>";
+        for (var i = 0; i < titleExam.length; i++) {
+             if (titleExam[i] != undefined) {document.getElementById("myDIV").innerHTML += "<button>" + titleExam[i] + "</button>";
         } }
         var x = document.getElementById("myDIV");
                         x.style.display = "block";
@@ -48,20 +46,59 @@ const PersonalData = ({personalData}) => {
     }
      function clickButton2()
         {
+
             var x = document.getElementById("answer");
                 x.style.display = "block";
+                //podminka pro zapocteni spatne odpovedi
+               /* if(odpoved je spatne){
+                pocetChyb++;
+                }*/
         }
+        function clickButton3()
+                {
+
+                if(ohodnoceni){
+                    switch(pocetChyb) {
+                      case 0:
+                        znamka=znamka + "A";
+                        break;
+                      case 1:
+                        znamka=znamka + "B";
+                        break;
+                      case 2:
+                        znamka=znamka + "C";
+                        break;
+                      case 3:
+                        znamka=znamka + "D";
+                        break;
+                      case 4:
+                        znamka=znamka + "F";
+                        break;
+
+                    }
+                    document.getElementById("znamka").innerHTML += "Známka: <b>" + znamka + "</b> (počet chyb: <b>"+ pocetChyb + "</b>)";
+                    var x = document.getElementById("znamka");
+                        x.style.display = "block";
+                        ohodnoceni=false;
+ }
+                }
 
     return (
         <div>
+
             <div id={"promDIV"}>
                 <h3>{prom}</h3>
             </div>
-            <button onClick={clickButton}>Zobrazit možnosti</button>
+            <button id="moznosti" onClick={clickButton}>Zobrazit možnosti</button>
             <div onClick={clickButton2} id={"myDIV"}>
             </div>
-            <div class="hidden" id={"answer"}> {prom3}</div>
+            <div class="hidden" id={"answer"}> {textExam}</div>
+<button id="ohodnotit" onClick={clickButton3}>Ohodnotit</button>
+ <div class="hidden" id={"znamka"}></div>
+
         </div>
+
+
     );
 };
 
