@@ -13,9 +13,9 @@ import PropTypes from 'prop-types';
                         <a href="/clients">Clients</a>
                         {
                             username ? (
-                                <a href="#" className={'login-btn'}>Prihlasen jako <strong>{username}</strong></a>
+                                <a href="#" className={'login-btn'}>Přihlášen jako <strong>{username}</strong></a>
                             ) : (
-                                <a href="/login" className={'login-btn'}>Prihlasit se</a>
+                                <a href="/login" className={'login-btn'}>Přihlásit se</a>
                             )
                         }
                     </div>

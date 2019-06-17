@@ -10,14 +10,14 @@ class Content extends React.Component {
                 <div className={"card"}>
                     <img src="https://image.flaticon.com/icons/svg/1877/1877771.svg" className={'w100'}></img>
                         <div className={"container"}>
-                            <h4><b>Doktor</b></h4>
+                            <h4><b>Student</b></h4>
                             <Link to={'/patient'}>Vstup do systému <i className="fas fa-caret-right"></i></Link>
                         </div>
                 </div>
                 <div className={"card"}>
                     <img src="https://image.flaticon.com/icons/svg/1875/1875640.svg" className={'w100'}></img>
                     <div className={"container"}>
-                        <h4><b>Admin</b></h4>
+                        <h4><b>Vyučující</b></h4>
                         <Link to={'/admin'}>Vstup do systému <i className="fas fa-caret-right"></i></Link>
                     </div>
                 </div>

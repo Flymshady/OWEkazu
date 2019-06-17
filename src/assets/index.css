@@ -30,7 +30,7 @@ code {
 
 .sidenav {
     height: 100%;
-    width: 300px;
+    width: 15%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -181,7 +181,7 @@ code {
 
 .content {
     position: relative;
-    width: 400px;
+    width: auto;
     background: white;
     padding: 30px;
 }
@@ -255,7 +255,8 @@ code {
 .Content {
   width: 100%;
   height: 100%;
-    padding-left: 300px;
+    padding-left: 20%;
+
 }
 
 .TextCenter {
@@ -263,7 +264,7 @@ code {
 }
 
 .Button {
-  border: 1px solid pink;
+  border: 1px solid lightskyblue;
   padding: 10px;
   background-color: transparent;
   color: black;
@@ -288,10 +289,11 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
+    padding-right: 12%;
 }
 
-.PinkUnderline {
-  border-bottom: 1px solid pink;
+.BlueUnderline {
+  border-bottom: 1px solid lightskyblue;
   padding: 15px 0;
   margin: 0;
 }
@@ -302,7 +304,7 @@ code {
 }
 
 .Input {
-  border: 1px solid pink;
+  border: 1px solid lightskyblue;
   padding: 8px;
   margin: 0 8px;
 }
@@ -315,19 +317,19 @@ code {
 
 .Grid {
   display: grid;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   grid-template-columns: auto auto auto;
 }
 
 .Grid .GridItem {
   width: 100%;
   height: 100%;
-  border: 1px solid pink;
+  border: 1px solid lightskyblue;
 }
 
-.BorderBottomPink {
-  border-bottom: 1px solid pink;
+.BorderBottomBlue {
+  border-bottom: 1px solid lightskyblue;
 }
 
 .Padding10 {
@@ -338,8 +340,8 @@ code {
   padding: 5px;
 }
 
-.BgPink {
-  background-color: pink;
+.BgBlue {
+  background-color: lightskyblue;
 }
 
 .BgWhite {
@@ -358,7 +360,7 @@ code {
     width: 45%;
     min-height: 200px;
     height: 40%;
-    border: 3px solid #f75454;
+    border: 3px solid lightskyblue;
     border-radius: 10px;
     padding: 10px;
     position: relative;
@@ -371,7 +373,7 @@ code {
 
 .close, .minimize, .maximize {
     border-radius: 50%;
-    border: 3px solid #f75454;
+    border: 3px solid lightskyblue;
     width: 5px;
     height: 5px;
     float: left;
@@ -381,7 +383,7 @@ code {
 .address-bar {
     width: 108%;
     margin-left: -4%;
-    border-top: 3px solid #f75454;
+    border-top: 3px solid lightskyblue;
     margin-top: 20px;
 }
 
@@ -389,7 +391,7 @@ code {
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    border: 3px solid #f75454;
+    border: 3px solid lightskyblue;
     top: 55%;
     margin-left: -30px;
     left: 50%;
@@ -409,7 +411,7 @@ code {
     margin-top: -1.5px;
     left: 50%;
     margin-left: -20px;
-    background-color: #f75454;
+    background-color: lightskyblue;
     content: '';
     display: block;
 }

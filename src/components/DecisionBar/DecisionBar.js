@@ -4,7 +4,7 @@ import buttonNames from './constants/button';
 
 const DecisionBar = () => {
     return (
-        <div className={'FlexSpacer Padding10'}>
+        <div className={'FlexSpacer Content'}>
             {
                 buttonNames.map(
                     (name) => <DecisionItem key={name} decisionName={name}/>

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {resultUrl} from '../constants';
 import {withRouter} from 'react-router';
+import {Link} from "react-router-dom";
 
 class Result extends React.Component {
     state = {
@@ -38,12 +39,16 @@ class Result extends React.Component {
                         <h2>Načítám</h2>
                     ) : (
                         <div className={'TextCenter'}>
-                            <h2>{result.result ? 'Správně' : 'Špatně'}</h2>
                             <p>Zvolil jsi {result.choice}</p>
+                            <h2>{result.result ? 'Správně' : 'Špatně'}</h2><br/>
+                            <Link to={'/patient'}>Pacient<i className="fas fa-caret-right"></i></Link>
                         </div>
                     )
                 }
             </div>
+
+
+
         );
     }
 }
