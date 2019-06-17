@@ -11,7 +11,7 @@ const PersonalData = ({personalData}) => {
     var prom2= '';
     var prom3= '';
     var prom5= 0;
-
+    var vykresleni=true;
 
 
     for(let i in personalData) {
@@ -27,7 +27,7 @@ const PersonalData = ({personalData}) => {
                     prom5++;
                     return val.title;
                 }}
-        }).join(' \n');
+        });
         prom3 = personalData.map(function (val) {
             if ((val.title != undefined) && (val.text != undefined)) {
                 if(val.exam==true){
@@ -37,29 +37,31 @@ const PersonalData = ({personalData}) => {
     }
     function clickButton()
     {
-        for (var i = 0; i < prom5; i++) {
-            document.getElementById("myDIV").innerHTML += "<button>" + prom2 + "</button>";
-        }
+    if(vykresleni){
+        for (var i = 0; i < prom2.length; i++) {
+             if (prom2[i] != undefined) {document.getElementById("myDIV").innerHTML += "<button>" + prom2[i] + "</button>";
+        } }
         var x = document.getElementById("myDIV");
-            x.style.display = "block";
-
-
+                        x.style.display = "block";
+        vykresleni=false;
+}
     }
+     function clickButton2()
+        {
+            var x = document.getElementById("answer");
+                x.style.display = "block";
+        }
 
     return (
-
         <div>
             <div id={"promDIV"}>
                 <h3>{prom}</h3>
-
             </div>
-            <button onClick={clickButton}>{prom2}</button>
-            <div >
-                <h3  class="hidden" id={"myDIV"}> {prom3}</h3>
-
+            <button onClick={clickButton}>Zobrazit možnosti</button>
+            <div onClick={clickButton2} id={"myDIV"}>
             </div>
+            <div class="hidden" id={"answer"}> {prom3}</div>
         </div>
-
     );
 };
 
