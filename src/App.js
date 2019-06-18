@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ApplicationBar from './components/ApplicationBar';
-import {LandingPage, Patient, Result, Login} from './pages';
+import {LandingPage, Patient, Result, Login, Teacher} from './pages';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {UserProvider} from './context/UserContext';
 import ProtectedRoute from './Routes/ProtectedRoute';
@@ -17,6 +17,7 @@ class App extends Component {
                         <Route exact path={'/'} component={LandingPage}/>
                         <Route path={'/login'} component={Login}/>
                         <ProtectedRoute path={'/patient'} component={Patient}/>
+                        <ProtectedRoute path={'/teacher'} component={Teacher}/>
                         <ProtectedRoute path={'/result/:choice'} component={Result}/>
 
                         <Route component={Page404} />
