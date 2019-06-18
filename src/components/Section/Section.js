@@ -5,7 +5,7 @@ class Section extends React.Component {
         const { heading, body } = this.props;
         return (
             <div className={'GridItem'}>
-                <div className={'FlexCenter BorderBottomPink Padding5'}>
+                <div className={'FlexCenter BorderBottomBlue Padding5'}>
                     { heading }
                 </div>
                 <div className={'Padding10'}>

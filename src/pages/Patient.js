@@ -3,6 +3,7 @@ import Section from '../components/Section';
 import {patientsUrl} from '../constants';
 import {PersonalData, Symptoms, Medicaments} from '../components/PacientInformation';
 import DecisionBar from '../components/DecisionBar';
+import DiagnosisBar from '../components/DiagnosisBar';
 
 class Patient extends React.Component {
     state = {
@@ -28,6 +29,7 @@ class Patient extends React.Component {
                         <PersonalData personalData={personalData}/>
                     }/>
                 </div>
+                <DiagnosisBar/>
                 <DecisionBar />
             </div>
         );

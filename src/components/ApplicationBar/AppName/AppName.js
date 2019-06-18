@@ -25,10 +25,6 @@ import PropTypes from 'prop-types';
             )
         }
 
-// hovno na políčku
-
-
-
 AppName.propTypes = {
     name: PropTypes.string,
 };
