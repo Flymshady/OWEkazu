@@ -23,7 +23,7 @@ const form = teacher.properties || [];
             return (
             <div>
                 <div className={'Content Grid'}>
-                    <Section heading={'Formulář pro vytvoření pacienta'} body={
+                    <Section heading={'Úpravy systému'} body={
                         <Form form={form}/>
                     }/>
                 </div>
