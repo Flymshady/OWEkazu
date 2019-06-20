@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {resultUrl} from '../constants';
 import {withRouter} from 'react-router';
 import {Link} from "react-router-dom";
+import Patient from '../pages/Patient.js';
 
 class Result extends React.Component {
     state = {

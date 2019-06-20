@@ -19,19 +19,19 @@ class DiagnosisBar extends React.Component {
         return (
 
             <div className={'FlexSpacer Content'}>
-                <div >
                     {this.state.diagnosis.map(diagnosisData => (
-                        <div><Link
+                        <Link
+                            className={'Button'}
                             to={'/result/' + diagnosisData}
                         >
                             {diagnosisData}
-                        </Link></div>
+                        </Link>
                     ))}
-                </div>
             </div>
         );
 
     }
 }
+
 
 export default DiagnosisBar;

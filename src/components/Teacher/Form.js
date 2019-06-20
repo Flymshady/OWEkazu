@@ -7,6 +7,15 @@ var potvrzeni = 'Pacient byl úspěšně vytvořen';
 var potvrzeni2 = 'Pacient byl úspěšně upraven';
 var potvrzeni3 = 'Diagnóza byla úspěšně vytvořena';
 
+    /*
+        // funkce pro odeslání dat :))
+        const myForm = document.getElementById('newDiagnose');
+
+        myForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+
+    */
 
     //funkce pro validaci formulare po potvrzeni (zze dopsat pripadne dalsi kriteria)
     function validateForm() {
@@ -55,6 +64,21 @@ var potvrzeni3 = 'Diagnóza byla úspěšně vytvořena';
                 alert("Diagnóza musí být vyplněna!");
                return false;
               }
+             var FormData = require('form-data');
+             var fs = require('fs');
+             const formData = new FormData(this);
+
+             fetch('https://owe-kazu.herokuapp.com/api/rest/admin/codelist/diagnosis', {
+                 method: 'post',
+                 headers: {'Content-Type':'application/x-www-form-urlencoded'},
+                 body: JSON.stringify({definition: formData})
+             }).then(function (response) {
+                 return response.text();
+             }).then(function (text) {
+                 console.log(text)
+             }).catch(function (error) {
+                 console.error(error)
+             });
 
                 //zobrazeni textu 'Pacient byl úspěšně vytvořen' v pripade uspesne validace
                 var x = document.getElementById("potvrzeni3");
@@ -66,6 +90,7 @@ var potvrzeni3 = 'Diagnóza byla úspěšně vytvořena';
             }
     return (
         <div>
+
             <div>
             <p><b>Vytvoření pacienta</b></p>
                 <form name="pacientForm" action="'https://owe-kazu.herokuapp.com/api/rest/teacher" onsubmit="return validateForm()" method="post">
@@ -92,15 +117,17 @@ var potvrzeni3 = 'Diagnóza byla úspěšně vytvořena';
 
              </div>
               <div  class="hidden" id={"potvrzeni2"}>{potvrzeni2} </div>
-              <div>
+          /*    <div>
             <p><b>Vytvoření diagnózy</b></p>
-                             <form name="diagnozaForm" action="'https://owe-kazu.herokuapp.com/api/rest/teacher" onsubmit="return validateForm()" method="post">
+
+                  <form id="newDiagnose" name="diagnozaForm" action="https://owe-kazu.herokuapp.com/api/rest/admin/codelist/diagnosis
+" onsubmit="return validateForm3()" method="post">
                                   Název diagnózy: <input type="text" name="diagnoza" ></input>
                                   <input id="vytvoreniDiagnozy" onClick={validateForm3} type="submit" value="Vytvořit diagnózu"></input>
                               </form>
 
                           </div>
-                           <div  class="hidden" id={"potvrzeni3"}>{potvrzeni3} </div>
+                           <div  class="hidden" id={"potvrzeni3"}>{potvrzeni3} </div>*/
         </div>
 
     );

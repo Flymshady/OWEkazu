@@ -1,4 +1,5 @@
 import Form from './Form';
+import NewDiagnosis from './NewDiagnosis';
 
 
-export { Form };
+export { Form, NewDiagnosis };
