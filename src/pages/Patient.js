@@ -1,9 +1,11 @@
 import React from 'react';
 import Section from '../components/Section';
+import Result from '../pages/Result';
 import {patientsUrl} from '../constants';
 import {PersonalData, Symptoms, Medicaments} from '../components/PacientInformation';
 import DecisionBar from '../components/DecisionBar';
 import DiagnosisBar from '../components/DiagnosisBar';
+import {Link} from "react-router-dom";
 
 class Patient extends React.Component {
     state = {
@@ -28,6 +30,9 @@ class Patient extends React.Component {
                     <Section heading={'Osobní údaje'} body={
                         <PersonalData personalData={personalData}/>
                     }/>
+
+                }
+
                 </div>
                 <DiagnosisBar/>
                 <DecisionBar />
