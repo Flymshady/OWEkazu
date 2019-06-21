@@ -426,3 +426,12 @@ code {
 #promDIV {
     white-space: pre;
 }
+
+#myDIV {
+    white-space: pre;
+    display: none;
+}
+
+#answer {
+    display: none;
+}
