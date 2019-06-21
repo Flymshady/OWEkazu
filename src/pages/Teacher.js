@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from '../components/Section';
-import {Form, NewDiagnosis} from '../components/Teacher';
+import {Form, NewDiagnosis, NewTemplate, EditDiagnosis} from '../components/Teacher';
 import {teacherUrl} from '../constants';
 
 class Teacher extends React.Component {
@@ -21,13 +21,19 @@ componentDidMount() {
 const form = teacher.properties || [];
 
             return (
-            <div>
+            <div class="teacher">
+            <label class="Nadpis">Úpravy systému</label>
                <div className={'Content Grid'}>
-                    <Section heading={'Úpravy systému'} body={
-                        <Form form={form}/>
-                    }/>
-                   <NewDiagnosis/>
+
+                    <NewTemplate/>
+
                 </div>
+                <div className={'Content Grid'}>
+                                   <NewDiagnosis/>
+                </div>
+                 <div className={'Content Grid'}>
+                  <EditDiagnosis/>
+                 </div>
 
 
             </div>

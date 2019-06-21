@@ -219,6 +219,46 @@ code {
     color: #999;
     border-bottom: 2px solid #999;
 }
+.buttonForm {
+               border-color: deepskyblue;
+               cursor: pointer;
+                background: darkblue;
+
+               color: lightblue;
+               font-weight: bold;
+               padding: 1%;
+               margin-top: 1%;
+               margin-left: 1%;
+               transition: 0.5s;
+           }
+
+       .buttonForm2 {
+                      border-color: deepskyblue;
+                      cursor: pointer;
+                      background: royalblue;
+                      color: lightblue;
+                      font-weight: bold;
+                      padding: 1%;
+                      margin-top: 1%;
+                      margin-left: 1%;
+                      transition: 0.5s;
+                  }
+                  .buttonForm2Active {
+                                        border-color: red;
+                                        cursor: pointer;
+                                        background: crimson;
+                                        color: lightblue;
+                                        font-weight: bold;
+                                        padding: 1%;
+                                        margin-top: 1%;
+                                        margin-left: 1%;
+                                        transition: 0.5s;
+                                    }
+
+.buttonForm:hover {
+               color: royalblue;
+               background: deepskyblue;
+           }
 .login-form input[type="submit"] {
     border-bottom: none !important;
     cursor: pointer;
@@ -262,6 +302,10 @@ code {
 .TextCenter {
   text-align: center;
 }
+.Nadpis{
+         padding-left:42%;
+         font-size: 25px
+       }
 
 .Button {
   border: 1px solid lightskyblue;
@@ -395,9 +439,25 @@ code {
     top: 55%;
     margin-left: -30px;
     left: 50%;
-    margin-top: -30px;
+
     position: absolute;
 }
+
+.teacher {
+margin:1%;
+padding-top: 2%;
+padding-bottom: 2.5%;
+padding-right: 5%;
+padding-left: 1%;
+margin-left: 30%;
+width:60%;
+border: 6px solid dodgerblue;
+  background-color: lightskyblue;
+  color: royalblue;
+  font-weight: bold;
+
+}
+
 .x:before, .x:after {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
