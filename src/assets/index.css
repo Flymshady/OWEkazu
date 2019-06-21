@@ -486,3 +486,12 @@ border: 6px solid dodgerblue;
 #promDIV {
     white-space: pre;
 }
+
+#myDIV {
+    white-space: pre;
+    display: none;
+}
+
+#answer {
+    display: none;
+}

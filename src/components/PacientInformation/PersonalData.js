@@ -1,60 +1,72 @@
 import React from 'react';
 
 
-const PersonalData = ({personalData}) => {
+const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageToSent}) => {
 
-    var prom = '';
-    var titleExam= '';
-    var textExam= '';
     var vykresleni=true;
     var ohodnoceni = true;
     var pocetChyb = 0;
     var znamka = '';
+    var text = "";
+    var image = "";
+    var imageTitle = "";
 
-
-
-    for(let i in personalData) {
-            prom = personalData.map(function (val) {
-                if ((val.title != undefined) && (val.text != undefined)) {
-                    if(val.exam==null){
-                    return val.title + ': ' + val.text;
-                }}
-            }).join('\n');
-        titleExam = personalData.map(function (val) {
-            if (val.title != undefined) {
-                if(val.exam==true){
-                    return val.title;
-                }}
-        });
-        textExam = personalData.map(function (val) {
-            if ((val.title != undefined) && (val.text != undefined)) {
-                if(val.exam==true){
-                    return val.text;
-                }}
-        }).join(' \n');
-    }
     function clickButton()
     {
     if(vykresleni){
-        for (var i = 0; i < titleExam.length; i++) {
-             if (titleExam[i] != undefined) {document.getElementById("myDIV").innerHTML += "<button>" + titleExam[i] + "</button>";
-        } }
+
         var x = document.getElementById("myDIV");
                         x.style.display = "block";
         vykresleni=false;
 }
     }
-     function clickButton2()
+
+    // fce pro exams s textem
+     function clickButton2(id)
         {
 
-            var x = document.getElementById("answer");
-                x.style.display = "block";
+            for(let i in examsWithTextToSent) {
+                text = examsWithTextToSent.map(function (val) {
+                    if(val.id === id) {
+                        console.log(val.text);
+                        var x = document.getElementById("answer1");
+                        x.style.display = "block";
+                        return val.text;
+                    }
+                })
+            }
+
+            document.getElementById('answer1').innerHTML = text;
+
                 //podminka pro zapocteni spatne odpovedi
                /* if(odpoved je spatne){
                 pocetChyb++;
                 }*/
         }
-        function clickButton3()
+        // fce pro exams s obrázkama
+        function clickButton3(id) {
+
+            for(let i in examsWithImageToSent) {
+                image = examsWithImageToSent.map(function (val) {
+                    if(val.id === id) {
+                        console.log(val.title);
+                        imageTitle = val.title;
+                        val.imageGroup.images.map(function (val2) {
+                            var x = document.getElementById("answer2");
+                            x.style.display = "block";
+                            console.log(val2.filename);
+                            return val2;
+                        })
+                    }
+                })
+            }
+
+            document.getElementById('answer2').innerHTML = image;
+            document.getElementById('answer2').innerHTML = imageTitle;
+        }
+
+        // fce pro hodnocení
+        function clickButton4()
                 {
 
                 if(ohodnoceni){
@@ -84,20 +96,41 @@ const PersonalData = ({personalData}) => {
                 }
 
     return (
-        <div>
 
-            <div id={"promDIV"}>
-                <h3>{prom}</h3>
-            </div>
+        <div>
+        <div>{personalDataToSent.map(function(item, i){
+            console.log('test');
+            return <h3 key={i}>{item.title} : {item.text}</h3>
+        })}</div>
+
             <button id="moznosti" onClick={clickButton}>Zobrazit možnosti</button>
-            <div onClick={clickButton2} id={"myDIV"}>
+
+            <div id={"myDIV"}>
+            <div>{examsWithTextToSent.map(function(item, i){
+                console.log('test');
+                return <div>
+                    <button onClick={clickButton2.bind(this, item.id)} key={i}>{item.title}</button>
+                </div>
+            })}</div>
+
+                <div>{examsWithImageToSent.map(function(item, i){
+                    console.log('test');
+                    return <div>
+                        <button onClick={() => clickButton3(item.id)} key={i}>{item.title}</button>
+                    </div>
+                })}</div>
+
+                <div id={"answer1"} className={"hidden"}><p>{text}</p></div>
+
+                <div id={"answer2"} className={"hidden"}><p>{imageTitle}</p><br/>
+                    <img src={image.filename} alt={image.text} width={500} height={500}></img></div>
+
             </div>
-            <div class="hidden" id={"answer"}> {textExam}</div>
-<button id="ohodnotit" onClick={clickButton3}>Ohodnotit</button>
- <div class="hidden" id={"znamka"}></div>
+
+            <button id="ohodnotit" onClick={clickButton4}>Ohodnotit</button>
+            <div className="hidden" id={"znamka"}></div>
 
         </div>
-
 
     );
 };
