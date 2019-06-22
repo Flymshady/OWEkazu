@@ -8,7 +8,9 @@ import Patient from '../pages/Patient.js';
 class Result extends React.Component {
     state = {
         isFetching: true,
-        result: {}
+        result: {},
+        patientId : "",
+        examsChecked : []
     };
 
     static propTypes = {
@@ -18,9 +20,20 @@ class Result extends React.Component {
     };
 
     componentDidMount() {
-        const {match} = this.props;
-        this.setState({isFetching: true});
-        fetch(resultUrl + '?choice=' + match.params.choice)
+        //const {match} = this.props;
+        //const {patientId} = this.props.location.diagnosisData;
+        //const {patientId} = this.props.location.state.id;
+        //const {exams} = this.props.location.state.exam;
+        //console.log(patientId);
+        /*this.setState({isFetching: true});
+        fetch(resultUrl + 'idpacienta', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: 'bubu'
+        })
             .then((res) => res.json())
             .then((res) => {
                 this.setState({result: res, isFetching: false});
@@ -28,11 +41,13 @@ class Result extends React.Component {
             .catch((e) => {
                 this.setState({isFetching: false});
                 console.log(e);
-            });
+            });*/
     }
 
     render() {
         const {result, isFetching} = this.state;
+        this.state.patientId = this.props.id;
+        console.log(this.state.patientId);
         return (
             <div className={'Content FlexCenter'}>
                 {

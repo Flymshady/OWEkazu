@@ -12,7 +12,7 @@ class Patient extends React.Component {
         patient: {},
         personalData : [],
         examsWithText: [],
-        examsWithImage : []
+        examsWithImage : [],
     };
 
     componentDidMount() {
@@ -42,16 +42,13 @@ class Patient extends React.Component {
         });
 
             return (
-            <div>
                 <div className={'Content Grid'}>
                     <Section heading={'Osobní údaje'} body={
                         <PersonalData personalDataToSent={this.state.personalData} examsWithTextToSent={this.state.examsWithText}
-                                      examsWithImageToSent={this.state.examsWithImage}/>
+                                      examsWithImageToSent={this.state.examsWithImage} patientId={patient.id} diagnosis={patient.diagnosis}/>
                     }/>
                 </div>
-                <DiagnosisBar/>
-                <DecisionBar />
-            </div>
+
         );
 
     }
