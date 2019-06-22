@@ -1,9 +1,15 @@
 import React from 'react';
+import DiagnosisBar from "../DiagnosisBar";
+import DecisionBar from "../DecisionBar";
 
 
-const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageToSent}) => {
+
+const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageToSent, patientId, diagnosis}) => {
+
 
     var vykresleni=true;
+    var vykresleniTextExam = true;
+    var vykresleniImageExam = true;
     var ohodnoceni = true;
     var pocetChyb = 0;
     var znamka = '';
@@ -11,8 +17,14 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
     var image = "";
     var imageTitle = "";
 
+    var index = 0;
+    var examsChecked = [index+1];
+
+
     function clickButton()
     {
+        console.log(patientId);
+        console.log(diagnosis);
     if(vykresleni){
 
         var x = document.getElementById("myDIV");
@@ -37,6 +49,17 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
             }
 
             document.getElementById('answer1').innerHTML = text;
+
+            if(vykresleniTextExam) {
+                examsChecked[index] = id;
+                index++;
+                vykresleniTextExam = false;
+            }
+
+
+            console.log(examsChecked);
+
+
 
                 //podminka pro zapocteni spatne odpovedi
                /* if(odpoved je spatne){
@@ -63,6 +86,17 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
 
             document.getElementById('answer2').innerHTML = image;
             document.getElementById('answer2').innerHTML = imageTitle;
+
+
+
+            if(vykresleniImageExam) {
+                examsChecked[index] = id;
+                index++;
+                vykresleniImageExam = false;
+            }
+
+            console.log(examsChecked);
+
         }
 
         // fce pro hodnocení
@@ -130,6 +164,13 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
             <button id="ohodnotit" onClick={clickButton4}>Ohodnotit</button>
             <div className="hidden" id={"znamka"}></div>
 
+
+            <div>
+                {/*nevíím jak to poslat do diagnosisBaru a nasledne do resultu k odeslani ptz neumim s propsama :))*/}
+                {/*jinak patientId, examsChecked a diagnosis se postují - měli by valit*/}
+                <DiagnosisBar id={patientId} exams={examsChecked} diagnosis={diagnosis}/>
+                <DecisionBar />
+            </div>
         </div>
 
     );
