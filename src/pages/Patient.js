@@ -13,6 +13,8 @@ class Patient extends React.Component {
         personalData : [],
         examsWithText: [],
         examsWithImage : [],
+        examsWithImage : []
+
     };
 
     componentDidMount() {
@@ -45,7 +47,9 @@ class Patient extends React.Component {
                 <div className={'Content Grid'}>
                     <Section heading={'Osobní údaje'} body={
                         <PersonalData personalDataToSent={this.state.personalData} examsWithTextToSent={this.state.examsWithText}
+
                                       examsWithImageToSent={this.state.examsWithImage} patientId={patient.id} diagnosis={patient.diagnosis}/>
+
                     }/>
                 </div>
 

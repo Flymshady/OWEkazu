@@ -3,7 +3,9 @@ import DiagnosisBar from "../DiagnosisBar";
 import DecisionBar from "../DecisionBar";
 
 
+
 const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageToSent, patientId, diagnosis}) => {
+
 
     var vykresleni=true;
     var vykresleniTextExam = true;
@@ -14,8 +16,10 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
     var text = "";
     var image = "";
     var imageTitle = "";
+
     var index = 0;
     var examsChecked = [index+1];
+
 
     function clickButton()
     {
@@ -55,6 +59,8 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
 
             console.log(examsChecked);
 
+
+
                 //podminka pro zapocteni spatne odpovedi
                /* if(odpoved je spatne){
                 pocetChyb++;
@@ -82,6 +88,7 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
             document.getElementById('answer2').innerHTML = imageTitle;
 
 
+
             if(vykresleniImageExam) {
                 examsChecked[index] = id;
                 index++;
@@ -89,6 +96,7 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
             }
 
             console.log(examsChecked);
+
         }
 
         // fce pro hodnocení
@@ -156,13 +164,13 @@ const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageTo
             <button id="ohodnotit" onClick={clickButton4}>Ohodnotit</button>
             <div className="hidden" id={"znamka"}></div>
 
+
             <div>
                 {/*nevíím jak to poslat do diagnosisBaru a nasledne do resultu k odeslani ptz neumim s propsama :))*/}
                 {/*jinak patientId, examsChecked a diagnosis se postují - měli by valit*/}
                 <DiagnosisBar id={patientId} exams={examsChecked} diagnosis={diagnosis}/>
                 <DecisionBar />
             </div>
-
         </div>
 
     );
