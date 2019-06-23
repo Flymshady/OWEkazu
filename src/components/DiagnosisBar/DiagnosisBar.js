@@ -27,20 +27,27 @@ class DiagnosisBar extends React.Component {
         //this.state.diagnosisName = this.props.diagnosisName;
         //this.state.patientId = this.props.patientId;
         return (
+            <div>
+                <div>
+                    <button className="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Vybrat diagnózu</button>
 
-            <div className={'FlexSpacer Content'}>
-                    {this.state.diagnosis.map(diagnosisData => (
-                        <Link
-                            className={'Button'}
-                            to={{pathname : '/result/' + diagnosisData,
-                            state : {exams : this.props.exams,
-                            diagnosisName : this.props.diagnosisName,
-                            patientId : this.props.patientId,
-                            diagnosisChose : diagnosisData}}}
-                        >
-                            {diagnosisData}
-                        </Link>
-                    ))}
+                    <div className="dropdown-menu">
+                        {this.state.diagnosis.map(diagnosisData => (
+                            <Link
+                                className={'dropdown-item'}
+                                to={{pathname : '/result/' + diagnosisData,
+                                    state : {exams : this.props.exams,
+                                        diagnosisName : this.props.diagnosisName,
+                                        patientId : this.props.patientId,
+                                        diagnosisChose : diagnosisData}}}
+                            >
+                                {diagnosisData}
+                            </Link>
+
+                        ))}
+                    </div>
+                </div>
             </div>
         );
 

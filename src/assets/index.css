@@ -27,6 +27,13 @@ code {
   height: 100vh;
 }
 
+.modal{
+    display: flex;
+    flex-direction: column;     /* make main axis horizontal (default setting) */
+    justify-content: center; /* center items horizontally, in this case */
+    align-items: center;     /* center items vertically, in this case */
+}
+
 .sidenav {
     height: 100%;
     width: 18%;
@@ -150,7 +157,7 @@ code {
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 235px;
+    width: 238px;
     text-align: center;
     background-color: rgba(255,255,255,0.25);
     padding: 16px 24px;
