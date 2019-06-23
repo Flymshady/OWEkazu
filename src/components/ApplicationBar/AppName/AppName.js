@@ -9,8 +9,6 @@ import PropTypes from 'prop-types';
                     <div className="sidenav-cont">
                         <p className={'logo'}></p>
                         <a href="/">Home</a>
-                        <a href="/services">Services</a>
-                        <a href="/clients">Clients</a>
                         {
                             username ? (
                                 <a href="#" className={'login-btn'}>Přihlášen jako <strong>{username}</strong></a>
