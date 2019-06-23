@@ -1,179 +1,146 @@
 import React from 'react';
 import DiagnosisBar from "../DiagnosisBar";
-import DecisionBar from "../DecisionBar";
 
 
 
-const PersonalData = ({personalDataToSent, examsWithTextToSent, examsWithImageToSent, patientId, diagnosis}) => {
+class PersonalData extends React.Component {
 
-
-    var vykresleni=true;
-    var vykresleniTextExam = true;
-    var vykresleniImageExam = true;
-    var ohodnoceni = true;
-    var pocetChyb = 0;
-    var znamka = '';
-    var text = "";
-    var image = "";
-    var imageTitle = "";
-
-    var index = 0;
-    var examsChecked = [index+1];
-
-
-    function clickButton()
-    {
-        console.log(patientId);
-        console.log(diagnosis);
-    if(vykresleni){
-
-        var x = document.getElementById("myDIV");
-                        x.style.display = "block";
-        vykresleni=false;
-}
+    constructor(props) {
+        super(props);
+        this.state = {
+            vykresleniTextExam : true,
+            vykresleniImageExam : true,
+            ohodnoceni : true,
+            pocetChyb : 0,
+            znamka : '',
+            text : "",
+            image : "",
+            imageTitle : "",
+            index : 0,
+            examsChecked : [],
+            personalDataToSent : [],
+            examsWithTextToSent : [],
+            examsWithImageToSent : [],
+            patientId : "",
+            diagnosis : "",
+            vykresleni : "",
+        };
     }
 
-    // fce pro exams s textem
-     function clickButton2(id)
-        {
 
-            for(let i in examsWithTextToSent) {
-                text = examsWithTextToSent.map(function (val) {
-                    if(val.id === id) {
-                        console.log(val.text);
-                        var x = document.getElementById("answer1");
-                        x.style.display = "block";
-                        return val.text;
-                    }
-                })
-            }
+    clickButton = () =>
+    {
+        if(this.state.vykresleni){
 
-            document.getElementById('answer1').innerHTML = text;
-
-            if(vykresleniTextExam) {
-                examsChecked[index] = id;
-                index++;
-                vykresleniTextExam = false;
-            }
-
-
-            console.log(examsChecked);
-
-
-
-                //podminka pro zapocteni spatne odpovedi
-               /* if(odpoved je spatne){
-                pocetChyb++;
-                }*/
+            var x = document.getElementById("myDIV");
+            x.style.display = "block";
+            this.state.vykresleni=false;
         }
-        // fce pro exams s obrázkama
-        function clickButton3(id) {
+    }
 
-            for(let i in examsWithImageToSent) {
-                image = examsWithImageToSent.map(function (val) {
-                    if(val.id === id) {
-                        console.log(val.title);
-                        imageTitle = val.title;
-                        val.imageGroup.images.map(function (val2) {
-                            var x = document.getElementById("answer2");
-                            x.style.display = "block";
-                            console.log(val2.filename);
-                            return val2;
-                        })
-                    }
-                })
-            }
+    clickButton2 = (id) =>
+    {
 
-            document.getElementById('answer2').innerHTML = image;
-            document.getElementById('answer2').innerHTML = imageTitle;
-
-
-
-            if(vykresleniImageExam) {
-                examsChecked[index] = id;
-                index++;
-                vykresleniImageExam = false;
-            }
-
-            console.log(examsChecked);
-
-        }
-
-        // fce pro hodnocení
-        function clickButton4()
-                {
-
-                if(ohodnoceni){
-                    switch(pocetChyb) {
-                      case 0:
-                        znamka=znamka + "A";
-                        break;
-                      case 1:
-                        znamka=znamka + "B";
-                        break;
-                      case 2:
-                        znamka=znamka + "C";
-                        break;
-                      case 3:
-                        znamka=znamka + "D";
-                        break;
-                      case 4:
-                        znamka=znamka + "F";
-                        break;
-
-                    }
-                    document.getElementById("znamka").innerHTML += "Známka: <b>" + znamka + "</b> (počet chyb: <b>"+ pocetChyb + "</b>)";
-                    var x = document.getElementById("znamka");
-                        x.style.display = "block";
-                        ohodnoceni=false;
- }
+        for(let i in this.state.examsWithTextToSent) {
+            this.state.text = this.state.examsWithTextToSent.map(function (val) {
+                if(val.id === id) {
+                    //console.log(val.text);
+                    var x = document.getElementById("answer1");
+                    x.style.display = "block";
+                    return val.text;
                 }
+            })
+        }
 
-    return (
+        document.getElementById('answer1').innerHTML = this.state.text;
 
-        <div>
-        <div>{personalDataToSent.map(function(item, i){
-            console.log('test');
-            return <h3 key={i}>{item.title} : {item.text}</h3>
-        })}</div>
+        if(this.state.vykresleniTextExam) {
+            this.state.examsChecked[this.state.index] = id;
+            this.state.index++;
+            this.state.vykresleniTextExam = false;
+        }
 
-            <button id="moznosti" onClick={clickButton}>Zobrazit možnosti</button>
 
-            <div id={"myDIV"}>
-            <div>{examsWithTextToSent.map(function(item, i){
-                console.log('test');
-                return <div>
-                    <button onClick={clickButton2.bind(this, item.id)} key={i}>{item.title}</button>
-                </div>
-            })}</div>
+        console.log(this.state.examsChecked);
+    }
 
-                <div>{examsWithImageToSent.map(function(item, i){
-                    console.log('test');
-                    return <div>
-                        <button onClick={() => clickButton3(item.id)} key={i}>{item.title}</button>
-                    </div>
+    clickButton3 = (id) => {
+
+        for(let i in this.state.examsWithImageToSent) {
+            this.state.image = this.state.examsWithImageToSent.map((val) =>{
+                if(val.id === id) {
+                    console.log(val.title);
+                    this.state.imageTitle = val.title;
+                    val.imageGroup.images.map(function (val2) {
+                        var x = document.getElementById("answer2");
+                        x.style.display = "block";
+                        console.log(val2.filename);
+                        return val2;
+                    })
+                }
+            })
+        }
+
+        //document.getElementById('answer2').innerHTML = this.state.image;
+        //document.getElementById('answer2').innerHTML = this.state.imageTitle;
+
+
+
+        if(this.state.vykresleniImageExam) {
+            console.log(this.state.vykresleniImageExam);
+            this.state.examsChecked[this.state.index] = id;
+            this.state.index++;
+            this.state.vykresleniImageExam = false;
+        }
+
+        console.log(this.state.examsChecked);
+    }
+
+    render() {
+        this.state.vykresleni = true;
+        this.state.personalDataToSent = this.props.personalDataToSent;
+        this.state.examsWithTextToSent = this.props.examsWithTextToSent;
+        this.state.examsWithImageToSent = this.props.examsWithImageToSent;
+        this.state.patientId = this.props.patientId;
+        this.state.diagnosis = this.props.diagnosis;
+        //console.log(this.state.personalDataToSent + ',' + this.state.vykresleni);
+        return (
+            <div>
+                <div>{this.state.personalDataToSent.map(function(item, i){
+                    return <h3 key={i}>{item.title} : {item.text}</h3>
                 })}</div>
 
-                <div id={"answer1"} className={"hidden"}><p>{text}</p></div>
+                <button id="moznosti" onClick={this.clickButton}>Zobrazit možnosti</button>
 
-                <div id={"answer2"} className={"hidden"}><p>{imageTitle}</p><br/>
-                    <img src={image.filename} alt={image.text} width={500} height={500}></img></div>
+                <div id={"myDIV"}>
+                    <div>{this.state.examsWithTextToSent.map((item, i) => (
+                        <div>
+                            <button onClick={()=>this.clickButton2(item.id)} key={i}>{item.title}</button>
+                        </div>
+                    ))}</div>
 
+                    <div>{this.state.examsWithImageToSent.map((item, i) => (
+                        <div>
+                            <button onClick={()=>this.clickButton3(item.id)} key={i}>{item.title}</button>
+                        </div>
+                        ))}</div>
+
+                    <div id={"answer1"} className={"hidden"}><p>{this.state.text}</p></div>
+
+                    <div id={"answer2"} className={"hidden"}>
+
+                        <img src={this.state.image.filename} alt={this.state.image.text} width={500} height={500}></img></div>
+
+                </div>
+
+                <div>
+                    <DiagnosisBar patientId = {this.state.patientId} diagnosisName = {this.state.diagnosis} exams = {this.state.examsChecked}/>
+                </div>
             </div>
 
-            <button id="ohodnotit" onClick={clickButton4}>Ohodnotit</button>
-            <div className="hidden" id={"znamka"}></div>
+        );
 
-
-            <div>
-                {/*nevíím jak to poslat do diagnosisBaru a nasledne do resultu k odeslani ptz neumim s propsama :))*/}
-                {/*jinak patientId, examsChecked a diagnosis se postují - měli by valit*/}
-                <DiagnosisBar id={patientId} exams={examsChecked} diagnosis={diagnosis}/>
-                <DecisionBar />
-            </div>
-        </div>
-
-    );
-};
+    }
+}
 
 export default PersonalData;

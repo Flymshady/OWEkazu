@@ -1,11 +1,7 @@
 import React from 'react';
 import Section from '../components/Section';
-import Result from '../pages/Result';
 import {patientsUrl} from '../constants';
-import {PersonalData, Symptoms, Medicaments} from '../components/PacientInformation';
-import DecisionBar from '../components/DecisionBar';
-import DiagnosisBar from '../components/DiagnosisBar';
-import {Link} from "react-router-dom";
+import {PersonalData} from '../components/PacientInformation';
 
 class Patient extends React.Component {
     state = {
@@ -13,7 +9,6 @@ class Patient extends React.Component {
         personalData : [],
         examsWithText: [],
         examsWithImage : [],
-        examsWithImage : []
 
     };
 
@@ -26,36 +21,36 @@ class Patient extends React.Component {
     }
 
     render() {
-        const {patient} = this.state;
-        const personalData = patient.properties || [];
+    const {patient} = this.state;
+    const personalData = patient.properties || [];
 
-        this.state.personalData = personalData.filter(function (e) {
-            return e.exam == null;
-        });
+    this.state.personalData = personalData.filter(function (e) {
+        return e.exam == null;
+    });
 
-        this.state.examsWithText = personalData.filter(function (e) {
-            return e.exam == true &&
-                e.imageGroup == null;
-        });
+    this.state.examsWithText = personalData.filter(function (e) {
+        return e.exam == true &&
+            e.imageGroup == null;
+    });
 
-        this.state.examsWithImage = personalData.filter(function (e) {
-            return e.exam == true &&
-                e.imageGroup != null;
-        });
+    this.state.examsWithImage = personalData.filter(function (e) {
+        return e.exam == true &&
+            e.imageGroup != null;
+    });
 
-            return (
-                <div className={'Content Grid'}>
-                    <Section heading={'Osobní údaje'} body={
-                        <PersonalData personalDataToSent={this.state.personalData} examsWithTextToSent={this.state.examsWithText}
+    return (
+        <div className={'Content Grid'}>
+            <Section heading={'Osobní údaje'} body={
+                <PersonalData personalDataToSent={this.state.personalData} examsWithTextToSent={this.state.examsWithText}
 
-                                      examsWithImageToSent={this.state.examsWithImage} patientId={patient.id} diagnosis={patient.diagnosis}/>
+                              examsWithImageToSent={this.state.examsWithImage} patientId={patient.id} diagnosis={patient.diagnosis}/>
 
-                    }/>
-                </div>
+            }/>
+        </div>
 
-        );
+    );
 
-    }
+}
 }
 
 export default Patient;
