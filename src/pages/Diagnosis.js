@@ -5,9 +5,15 @@ import {withRouter} from 'react-router';
 import {Link} from "react-router-dom";
 
 class Diagnosis extends React.Component {
-    state = {
-        diagnosis: [],
-    };
+
+    constructor() {
+        super();
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.state = {
+            diagnosisId: "",
+        }
+    }
 
     static propTypes = {
         location: PropTypes.object,
@@ -15,16 +21,38 @@ class Diagnosis extends React.Component {
         history: PropTypes.object,
     };
 
-    componentDidMount() {
-        const {match} = this.props;
-        fetch(editDiagnosisUrl + '?choice=' + match.params.choice)
-            .then((res) => res.json())
-            .then((res) => {
-                this.setState({diagnosis: res});
-            })
-            .catch((e) => {
-                console.log(e);
-            });
+    // odeslání dat
+    handleSubmit(event) {
+        event.preventDefault();
+        var FormData = require('form-data');
+        var fs = require('fs');
+        const data = new FormData(event.target);
+
+        var object = {};
+        data.forEach(function (value, key) {
+            object[key] = value;
+        });
+        var json = JSON.stringify(object);
+
+        this.state.diagnosisId = this.props.location.state.diagnosisData;
+        console.log(this.state.diagnosisId);
+        console.log(json);
+
+        fetch(editDiagnosisUrl + this.state.diagnosisId, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': 'http://localhost:3000'
+            },
+            body: json
+        }).then(function (response) {
+            return response.text();
+        }).then(function (text) {
+            console.log(text)
+        }).catch(function (error) {
+            console.error(error)
+        });
     }
 
 
@@ -33,14 +61,13 @@ class Diagnosis extends React.Component {
             <div className={'Content FlexCenter'}>
                         <div className={'TextCenter'}>
                             <h2>Nazev: ...</h2>
-                            <form>
+                            <form onSubmit={this.handleSubmit}>
                                 <label>
                                     Novy nazev:
-                                    <input type="text" name="name" required={"true"}/>
+                                    <input type="text" name="definition"id="definition" required={"true"}/>
                                 </label>
                                 <input type="submit" value="Submit" />
                             </form>
-                            <button className="btn-danger">DELETE</button>
                             <br/>
                             <Link to={'/teacher'}><i className="fas fa-caret-left mr-2"></i>Back</Link>
                         </div>

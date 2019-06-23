@@ -19,7 +19,7 @@ class App extends Component {
                         <ProtectedRoute path={'/patient'} component={Patient}/>
                         <ProtectedRoute path={'/teacher'} component={Teacher}/>
                         <ProtectedRoute path={'/result/:choice'} component={Result}/>
-                        <ProtectedRoute path={'/diagnosis/:choice'} component={Diagnosis}/>
+                        <ProtectedRoute path={'/diagnosis/'} component={Diagnosis}/>
 
                         <Route component={Page404} />
                     </Switch>

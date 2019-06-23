@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {resultUrl} from '../constants';
 import {withRouter} from 'react-router';
 import {Link} from "react-router-dom";
-import Patient from '../pages/Patient.js';
 
 class Result extends React.Component {
     state = {
@@ -26,14 +25,12 @@ class Result extends React.Component {
     };
 
     componentDidMount() {
-        const { handle } = this.props.match.params;
-        const {match} = this.props.location.state;
         this.state.examsChecked = this.props.location.state.exams;
         this.state.patientId = this.props.location.state.patientId;
-        console.log(this.state.patientId + ',' + this.state.examsChecked);
         this.state.diagnosisName = this.props.location.state.diagnosisName;
         this.state.diagnosisChose = this.props.location.state.diagnosisChose;
         this.setState({isFetching: true});
+        console.log(JSON.stringify({diagnosis : this.state.diagnosisName, exams : this.state.examsChecked}));
 
         fetch(resultUrl + this.state.patientId, {
             method: 'POST',
@@ -70,9 +67,6 @@ class Result extends React.Component {
                     )
                 }
             </div>
-
-
-
         );
     }
 }
