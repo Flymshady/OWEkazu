@@ -9,11 +9,14 @@ class Diagnosis extends React.Component {
     constructor() {
         super();
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.routeChange = this.routeChange.bind(this);
         this.state = {
             diagnosisId: "",
         }
     }
+     routeChange() {
+
+      }
 
     static propTypes = {
         location: PropTypes.object,
@@ -53,6 +56,9 @@ class Diagnosis extends React.Component {
         }).catch(function (error) {
             console.error(error)
         });
+          alert("Diagnoza byla uspesne editovana")
+        let path = '/teacher';
+                this.props.history.push(path);
     }
 
 
@@ -66,7 +72,7 @@ class Diagnosis extends React.Component {
                                     Novy nazev:
                                     <input type="text" name="definition"id="definition" required={"true"}/>
                                 </label>
-                                <input type="submit" value="Submit" />
+                                <input onClick={this.routeChange} type="submit" value="Submit" />
                             </form>
                             <br/>
                             <Link to={'/teacher'}><i className="fas fa-caret-left mr-2"></i>Back</Link>
