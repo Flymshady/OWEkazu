@@ -9,7 +9,7 @@ import Time from '../Time/Time';
                 <div className="sidenav">
                     <div className="sidenav-cont">
                         <p className={'logo'}></p>
-                        <a href="/">Home</a>
+                        <a href="/login">Home</a>
                         {
                             username ? (
                                 <a href="#" className={'login-btn'}>Přihlášen jako <strong>{username}</strong></a>

@@ -22,6 +22,7 @@ class NewTemplate extends React.Component{
                 object[key] = value;
             });
             var json = JSON.stringify(object);
+            console.log(json);
 
             fetch('https://owe-kazu.herokuapp.com/api/rest/admin/template', {
                 method: 'POST',
@@ -46,9 +47,6 @@ class NewTemplate extends React.Component{
         <div>
         <p><b>Vytvoření template</b></p>
             <form name="templateForm" id="templateForm" onSubmit={this.handleSubmit}>
-                <label htmlFor="template"> ID  </label>
-                <p></p>
-                <input  id="id" name="id" type="text" required={true}/>
                 <p></p>
                  <p></p>
                                                                       <label htmlFor="template">  Title  </label>

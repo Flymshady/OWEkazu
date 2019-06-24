@@ -14,8 +14,8 @@ class App extends Component {
                 <ApplicationBar/>
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path={'/'} component={LandingPage}/>
                         <Route path={'/login'} component={Login}/>
+                        <Route exact path={'/'} component={LandingPage}/>
                         <ProtectedRoute path={'/patient'} component={Patient}/>
                         <ProtectedRoute path={'/teacher'} component={Teacher}/>
                         <ProtectedRoute path={'/result/:choice'} component={Result}/>
