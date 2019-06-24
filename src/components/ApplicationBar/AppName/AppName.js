@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Time from '../Time/Time';
 
 
         const AppName = ({ email, username, name }) => {
@@ -18,6 +19,8 @@ import PropTypes from 'prop-types';
                         }
                     </div>
                     <p className={'creators'}>Vytvořil: Schneider, Vítek, Cellar a Milenković</p>
+                    <p> <Time /></p>
+
                 </div>
 
             )

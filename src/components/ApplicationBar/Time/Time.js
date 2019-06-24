@@ -26,7 +26,7 @@ class Time extends React.Component {
 
     render() {
         return (
-            <div className={'Navbar-Time'}>
+            <div className={'sidenav-cont'}>
                 <span>{ this.formatTime(this.state.currentTime) }</span>
             </div>
         );

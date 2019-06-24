@@ -7,15 +7,6 @@ var potvrzeni = 'Pacient byl úspěšně vytvořen';
 var potvrzeni2 = 'Pacient byl úspěšně upraven';
 var potvrzeni3 = 'Diagnóza byla úspěšně vytvořena';
 
-    /*
-        // funkce pro odeslání dat :))
-        const myForm = document.getElementById('newDiagnose');
-
-        myForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-        });
-
-    */
 
     //funkce pro validaci formulare po potvrzeni (zze dopsat pripadne dalsi kriteria)
     function validateForm() {
@@ -117,17 +108,7 @@ var potvrzeni3 = 'Diagnóza byla úspěšně vytvořena';
 
              </div>
               <div  class="hidden" id={"potvrzeni2"}>{potvrzeni2} </div>
-          /*    <div>
-            <p><b>Vytvoření diagnózy</b></p>
 
-                  <form id="newDiagnose" name="diagnozaForm" action="https://owe-kazu.herokuapp.com/api/rest/admin/codelist/diagnosis
-" onsubmit="return validateForm3()" method="post">
-                                  Název diagnózy: <input type="text" name="diagnoza" ></input>
-                                  <input id="vytvoreniDiagnozy" onClick={validateForm3} type="submit" value="Vytvořit diagnózu"></input>
-                              </form>
-
-                          </div>
-                           <div  class="hidden" id={"potvrzeni3"}>{potvrzeni3} </div>*/
         </div>
 
     );
