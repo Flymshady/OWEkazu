@@ -15,22 +15,34 @@ class Teacher extends React.Component {
             return (
             <div className="teacher">
             <label className="Nadpis">Úpravy systému</label>
-                <p></p>
-                <div className={'Content Grid'}>
-                  <NewDiagnosis/>
+                <div className="col-xs-12" id={"tabs"}>
+                    <nav>
+                        <div className="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a className="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                               role="tab" aria-controls="nav-home" aria-selected="true">Template</a>
+                            <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                               role="tab" aria-controls="nav-profile" aria-selected="false">Diagnoza</a>
+                        </div>
+                    </nav>
+                    <div className="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div className="tab-pane fade show active" id="nav-home" role="tabpanel"
+                             aria-labelledby="nav-home-tab">
+
+                            <NewTemplate/>
+                            <EditTemplate/>
+
+                        </div>
+                        <div className="tab-pane fade" id="nav-profile" role="tabpanel"
+                             aria-labelledby="nav-profile-tab">
+
+                            <NewDiagnosis/>
+                            <EditDiagnosis/>
+
+                        </div>
+                    </div>
+
                 </div>
-                <p></p>
-                 <div className={'Content Grid'}>
-                  <EditDiagnosis/>
-                 </div>
-                 <p></p>
-                  <div className={'Content Grid'}>
-                   <NewTemplate/>
-                   </div>
-                <p></p>
-                 <div className={'Content Grid'}>
-                  <EditTemplate/>
-                 </div>
+
 
 
             </div>

@@ -85,7 +85,7 @@ code {
     padding-right: 15px;
 }
 
-.active {
+/*.active {
     background-color: rgba(95, 38, 255, 0.4);
     color: white;
     border-top-left-radius: 40px;
@@ -97,7 +97,7 @@ code {
     padding-right: 15px;
     font-size: 180%;
     color: #034171;
-}
+}*/
 
 .sidenav a:hover{
     background-color: rgba(53, 164, 255, 0.6);
@@ -105,12 +105,12 @@ code {
     border-bottom-left-radius: 40px;
     opacity: 1;
 }
-.active:hover{
+/*.active:hover{
     background-color: rgba(53, 164, 255, 0.6);
     border-top-left-radius: 40px;
     border-bottom-left-radius: 0;
     opacity: 1;
-}
+}*/
 
 .logo{
     /*background-image: url("../images/llogo.png");*/
@@ -181,6 +181,22 @@ code {
     text-decoration: underline;
 }
 
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #f3f3f3;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 4px solid !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #eee;
+    font-size: 20px;
+}
+
 .w100{
     width: 100%;
 }
@@ -192,15 +208,6 @@ code {
     padding: 30px;
 }
 
-.content:after {
-    content: "*";
-    font-size: 140px;
-    position: absolute;
-    top: -56px;
-    color: #9D32FE;
-    right: -26.5px;
-}
-
 .content div{
     position: relative;
 }
@@ -208,7 +215,7 @@ code {
 .login-form h3 {
     margin: 0 0 30px;
     text-transform: uppercase;
-    color: #0BB0D3;
+    color: #0387FC;
     font-size: 90%;
 }
 .login-form input {
@@ -297,7 +304,7 @@ code {
 .login-form input[type="submit"] {
     border-bottom: none !important;
     cursor: pointer;
-    background: #0BB0D3;
+    background: #0387FC;
     color: white;
     padding: 7px 0;
     margin-bottom: 0;
@@ -305,7 +312,7 @@ code {
     transition: 0.5s;
 }
 .login-form input[type="submit"]:hover {
-    background: #0ba0c3;
+    background: #0387FC;
 }
 .login-form label {
     position: absolute;
@@ -318,13 +325,22 @@ code {
 .login-form input:focus ~ label,
 .login-form input:valid ~ label {
     top: -10px;
-    color: #0BB0D3;
+    color: #0387FC;
     font-size: 75%;
     font-weight: bold;
 }
 .login-form input:focus,
 .login-form input:valid {
-    border-bottom: 2px solid #0BB0D3;
+    border-bottom: 2px solid #0387FC;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 400px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
 }
 
 .Content {
@@ -480,10 +496,7 @@ code {
 
 .teacher {
 margin:1%;
-padding-top: 2%;
-padding-bottom: 2.5%;
-padding-right: 5%;
-padding-left: 1%;
+    padding: 30px;
 margin-left: 30%;
 width:60%;
 border: 6px solid dodgerblue;

@@ -44,13 +44,17 @@ class NewDiagnosis extends React.Component{
 
     render() {
         return (
-        <div>
-        <p><b>Vytvoření diagnózy</b></p>
-            <form name="diagnozaForm" id="diagnozaForm" onSubmit={this.handleSubmit}>
-                <label htmlFor="diagnosis"> Název </label>
-                <input  id="definition" name="definition" type="text" required={true}/>
-                <button className="buttonForm">Vytvořit</button>
-            </form>
+        <div className={"mb-3"}>
+        <p>Vytvoření diagnózy</p>
+            <div className={"content"}>
+                <form name="diagnozaForm" id="diagnozaForm" onSubmit={this.handleSubmit} className={'login-form'}>
+                    <div>
+                        <input  id="definition" name="definition" type="text" required={true}/>
+                        <label htmlFor="diagnosis"> Název </label>
+                    </div>
+                    <input type="submit" name="" value="Vytvořit"/>
+                </form>
+            </div>
 </div>
         );
     }

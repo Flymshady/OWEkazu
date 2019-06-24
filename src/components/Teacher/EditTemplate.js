@@ -24,7 +24,7 @@ class EditTemplate extends React.Component {
         return (
 
             <div>
-                <p><b>Editace templatu</b></p>
+                <p>Editace templatu</p>
                 <div>
                     <button className="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Zobrazit seznam templatů</button>

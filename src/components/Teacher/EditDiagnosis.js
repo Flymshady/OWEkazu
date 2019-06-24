@@ -24,23 +24,26 @@ class EditDiagnosis extends React.Component {
         return (
 
             <div>
-                <p><b>Editace diagnózy</b></p>
-                <div>
-                    <button className="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Zobrazit seznam diagnóz</button>
+                <p>Seznam diagnóz</p>
+                <div className="table-wrapper-scroll-y my-custom-scrollbar">
 
-                    <div className="dropdown-menu">
+                    <table className="table table-bordered table-striped mb-0">
+                        <tbody>
                         {this.state.diagnosis.map(diagnosisData => (
-                            <Link key={diagnosisData.id}
-                                className={'dropdown-item'}
-                                to={{pathname : '/diagnosis/',
-                                    state : { diagnosisData : diagnosisData.id, diagnosisDefinition : diagnosisData.definition }}}
-                            >
-                                {diagnosisData.definition}
-                            </Link>
-
+                            <tr>
+                                <th>
+                                    <Link key={diagnosisData.id}
+                                          to={{pathname : '/diagnosis/',
+                                              state : { diagnosisData : diagnosisData.id, diagnosisDefinition : diagnosisData.definition }}}
+                                    >
+                                        {diagnosisData.definition}
+                                    </Link>
+                                </th>
+                            </tr>
                         ))}
-                    </div>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         );

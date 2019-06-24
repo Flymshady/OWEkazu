@@ -26,7 +26,7 @@ class DiagnosisBar extends React.Component {
         return (
             <div>
                 <div>
-                    <button className="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                    <button className="btn btn-primary dropdown-toggle mr-4 mt-3" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">Vybrat diagnózu</button>
 
                     <div className="dropdown-menu">
