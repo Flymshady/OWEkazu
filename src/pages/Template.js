@@ -63,8 +63,9 @@ class Template extends React.Component {
 
     render() {
         return (
+        <div className="teacher">
             <div className={'Content FlexCenter'}>
-                        <div className={'TextCenter'}>
+
 
                             <form onSubmit={this.handleSubmit}>
                                <label htmlFor="template">  Template ID: {this.props.location.state.templateData}  </label>
@@ -95,15 +96,16 @@ class Template extends React.Component {
                                                         <p></p>
                                                      <p></p>
                                                      <label htmlFor="template">  Exam  </label>
-                                                       <input  className="input" id="exam" name="exam" type="checkbox" />
+                                                       <input   id="exam" name="exam" type="checkbox" />
                                                       <p></p>
 
                                 <input onClick={this.routeChange} type="submit" value="Submit" />
                             </form>
-                            <br/>
+                              </div>
                             <Link to={'/teacher'}><i className="fas fa-caret-left mr-2"></i>Back</Link>
-                        </div>
-            </div>
+
+
+ </div>
 
 
 
