@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, NewDiagnosis, NewTemplate, EditDiagnosis} from '../components/Teacher';
+import { NewDiagnosis, NewTemplate, EditDiagnosis} from '../components/Teacher';
 
 class Teacher extends React.Component {
     state = {

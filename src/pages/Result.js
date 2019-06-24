@@ -30,7 +30,7 @@ class Result extends React.Component {
         this.state.diagnosisName = this.props.location.state.diagnosisName;
         this.state.diagnosisChose = this.props.location.state.diagnosisChose;
         this.setState({isFetching: true});
-        console.log(JSON.stringify({diagnosis : this.state.diagnosisName, exams : this.state.examsChecked}));
+        console.log(JSON.stringify({diagnosis : this.state.diagnosisChose, exams : this.state.examsChecked}));
 
         fetch(resultUrl + this.state.patientId, {
             method: 'POST',
@@ -38,7 +38,7 @@ class Result extends React.Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({diagnosis : this.state.diagnosisName, exams : this.state.examsChecked})
+            body: JSON.stringify({diagnosis : this.state.diagnosisChose, exams : this.state.examsChecked})
         })
             .then((res) => res.json())
             .then((res) => {

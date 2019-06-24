@@ -2,12 +2,12 @@ import React from 'react';
 import {editDiagnosisUrl} from '../../constants';
 import {Link} from "react-router-dom";
 
-function zobrazitSeznam(){
+/*function zobrazitSeznam(){
             var x = document.getElementById("seznam");
                                        x.style.display = "block";
-            }
+            }*/
 
-class EditDagnosis extends React.Component {
+class EditDiagnosis extends React.Component {
     state = {
         diagnosis: [],
     };
@@ -23,33 +23,29 @@ class EditDagnosis extends React.Component {
     render() {
         return (
 
-            <div >
-             <p><b>Editace diagnózy</b></p>
-               <p><button id="upraveniDiagnozy" className="buttonForm" onClick={zobrazitSeznam}>Zobrazit seznam diagnóz</button></p>
-            <p> <div id={"seznam"} className="hidden">
-                <table className="table table-striped">
-                    <tbody>
-                    {this.state.diagnosis.map(diagnosisData => (
-                        <tr>
-                            <td>
-                                <Link
-                                    className={'Button'}
-                                    to={{pathname : '/diagnosis/',
-                                        state : {diagnosisData : diagnosisData.id}}}
-                                >{diagnosisData.definition}</Link>
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                </table>
-            </div>
-            </p>
+            <div>
+                <p><b>Editace diagnózy</b></p>
+                <div>
+                    <button className="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Zobrazit seznam diagnóz</button>
+
+                    <div className="dropdown-menu">
+                        {this.state.diagnosis.map(diagnosisData => (
+                            <Link
+                                className={'dropdown-item'}
+                                to={{pathname : '/diagnosis/',
+                                    state : { diagnosisData : diagnosisData.id }}}
+                            >
+                                {diagnosisData.definition}
+                            </Link>
+
+                        ))}
+                    </div>
+                </div>
             </div>
         );
 
     }
 }
 
-export default EditDagnosis;
+export default EditDiagnosis;
