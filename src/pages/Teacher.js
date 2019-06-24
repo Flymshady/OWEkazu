@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewDiagnosis, NewTemplate, EditDiagnosis} from '../components/Teacher';
+import { NewDiagnosis, NewTemplate, EditDiagnosis, EditTemplate} from '../components/Teacher';
 
 class Teacher extends React.Component {
     state = {
@@ -10,16 +10,21 @@ class Teacher extends React.Component {
             return (
             <div class="teacher">
             <label class="Nadpis">Úpravy systému</label>
-               <div className={'Content Grid'}>
-                    <NewTemplate/>
-                </div>
                 <p></p>
                 <div className={'Content Grid'}>
-                                   <NewDiagnosis/>
+                  <NewDiagnosis/>
                 </div>
                 <p></p>
                  <div className={'Content Grid'}>
                   <EditDiagnosis/>
+                 </div>
+                 <p></p>
+                  <div className={'Content Grid'}>
+                   <NewTemplate/>
+                   </div>
+                <p></p>
+                 <div className={'Content Grid'}>
+                  <EditTemplate/>
                  </div>
 
 

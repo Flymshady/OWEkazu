@@ -1,61 +1,49 @@
 import React from 'react';
-import {patientsUrl} from '../../constants';
+import {editTemplateUrl} from '../../constants';
 import {Link} from "react-router-dom";
-import {PersonalData, Symptoms, Medicaments} from '../../components/PacientInformation';
 
-
-//tady je potreba nejak nalinkovat personalData
-
-
-
-
-
-function zobrazitSeznamP(){
-            var x = document.getElementById("seznam2");
-                                       x.style.display = "block";
-            }
-
-function nacteniPacienta(){
-
-document.getElementById("dbtn").classList.remove('buttonForm2');
-document.getElementById("dbtn").classList.add('buttonForm2Active');
-            }
 
 class EditTemplate extends React.Component {
     state = {
-        personalData: [],
+        template: [],
     };
 
     componentDidMount() {
-        fetch(patientsUrl)
+        fetch(editTemplateUrl)
             .then((response) => response.json())
             .then((jsonResponse) => {
-                this.setState({personalData: jsonResponse})
+                this.setState({template: jsonResponse})
             }).catch((err) => console.error(err));
     }
 
     render() {
         return (
 
-            <div >
-             <p><b>Editace diagnózy</b></p>
-               <p><button id="upraveniDiagnozy" class="buttonForm" onClick={zobrazitSeznamP}>Zobrazit seznam pacientů</button></p>
-            <p> <div id={"seznam2"} class="hidden">
-                    {this.state.personalData.map(personalData => (
-                        <button id="dbtn" class="buttonForm2" onClick={nacteniPacienta}> {personalData}</button>
-                    ))}
-            </div>
-            </p>
-                        <form name="diagnozaEditForm" onSubmit={this.handleSubmit}>
-                            <label htmlFor="patient"> Nový název </label>
-                            <input  id="definition" name="definition" type="text" required={'true'}/>
-                            <button class="buttonForm">Změnit</button>
-                        </form>
+            <div>
+                <p><b>Editace templatu</b></p>
+                <div>
+                    <button className="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Zobrazit seznam templatů</button>
+
+                    <div className="dropdown-menu">
+
+                        {this.state.template.map(templateData => (
+                            <Link
+                                className={'dropdown-item'}
+                                to={{pathname : '/template/',
+                                    state : { templateData : templateData.id }}}
+                            >
+                                {templateData.id}
+                            </Link>
+
+
+                        ))}
+                    </div>
+                </div>
             </div>
         );
 
     }
 }
-
 
 export default EditTemplate;

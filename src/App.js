@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ApplicationBar from './components/ApplicationBar';
-import {LandingPage, Patient, Result, Login, Teacher, Diagnosis} from './pages';
+import {LandingPage, Patient, Result, Login, Teacher, Diagnosis, Template} from './pages';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {UserProvider} from './context/UserContext';
 import ProtectedRoute from './Routes/ProtectedRoute';
@@ -20,7 +20,7 @@ class App extends Component {
                         <ProtectedRoute path={'/teacher'} component={Teacher}/>
                         <ProtectedRoute path={'/result/:choice'} component={Result}/>
                         <ProtectedRoute path={'/diagnosis/'} component={Diagnosis}/>
-
+                        <ProtectedRoute path={'/template/'} component={Template}/>
                         <Route component={Page404} />
                     </Switch>
                 </BrowserRouter>
