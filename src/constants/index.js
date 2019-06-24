@@ -9,3 +9,7 @@ export const editDiagnosisUrl = 'https://owe-kazu.herokuapp.com/api/rest/admin/c
 export const loginUrl = 'https://owe2019.herokuapp.com/login';
 
 export const diagnosisUrl = 'https://owe-kazu.herokuapp.com/api/rest/student/diagnosis';
+
+export const editTemplateUrl = 'https://owe-kazu.herokuapp.com/api/rest/admin/template/list';
+
+export const templateUrl = 'https://owe-kazu.herokuapp.com/api/rest/admin/template';

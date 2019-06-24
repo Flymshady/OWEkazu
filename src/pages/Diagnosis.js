@@ -66,7 +66,7 @@ class Diagnosis extends React.Component {
         return (
             <div className={'Content FlexCenter'}>
                         <div className={'TextCenter'}>
-                            <h2>Nazev: ...</h2>
+                            <h2>Nazev: {this.props.location.state.diagnosisData}</h2>
                             <form onSubmit={this.handleSubmit}>
                                 <label>
                                     Novy nazev:

@@ -6,9 +6,7 @@ class NewTemplate extends React.Component{
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
-        title : "",
-        text : "",
-        id : "",
+            id : "",
         }
     }
 
@@ -25,7 +23,7 @@ class NewTemplate extends React.Component{
             });
             var json = JSON.stringify(object);
 
-            fetch('https://owe-kazu.herokuapp.com/api/rest/admin/codelist/template', {
+            fetch('https://owe-kazu.herokuapp.com/api/rest/admin/template', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -39,19 +37,50 @@ class NewTemplate extends React.Component{
             }).catch(function (error) {
                 console.error(error)
             });
+             alert("Template byl uspesne vytvoren");
+             document.getElementById("diagnozaForm").reset();
     }
 
     render() {
         return (
         <div>
-        <p><b>Vytvoření pacienta</b></p>
-            <form name="diagnozaForm" onSubmit={this.handleSubmit}>
-                <label htmlFor="template"> Title </label>
-                 <input  id="title" name="title" type="text" required={'true'}/>
-                 <label htmlFor="template"> Text </label>
-                  <input  id="text" name="text" type="text" required={'true'}/>
-                  <label htmlFor="template"> ID </label>
+        <p><b>Vytvoření template</b></p>
+            <form name="templateForm" id="templateForm" onSubmit={this.handleSubmit}>
+                <label htmlFor="template"> ID  </label>
+                <p></p>
                 <input  id="id" name="id" type="text" required={'true'}/>
+                <p></p>
+                 <p></p>
+                                                                      <label htmlFor="template">  Title  </label>
+                                                                      <p></p>
+                                                                     <input  id="title" name="title" type="text" required={'true'}/>
+                                                                     <p></p>
+                                                                      <label htmlFor="template">  Min Bonus  </label>
+                                                                      <p></p>
+                                                                     <input  id="minBonus" name="minBonus" type="text" required={'true'}/>
+                                                                     <p></p>
+                                                                      <label htmlFor="template">  Max Malus </label>
+                                                                      <p></p>
+                                                                     <input  id="maxMalus" name="maxMalus" type="text" required={'true'}/>
+                                                                     <p></p>
+                                                                      <label htmlFor="template">  Diagnosis  </label>
+                                                                      <p></p>
+                                                                     <input  id="diagnosis" name="diagnosis" type="text" required={'true'}/>
+                                                                     <p></p>
+                                                                     <label htmlFor="template"> Max Price  </label>
+                                                                     <p></p>
+                                                                       <input  id="maxPrice" name="maxPrice" type="text" required={'true'}/>
+                                                                       <p></p>
+                                                                        <label htmlFor="template">  Text  </label>
+                                                                         <p></p>
+                                                                         <input  id="text" name="text" type="text" />
+                                                                         <p></p>
+                                                                      <p></p>
+                                                                      <label htmlFor="template">  Exam  </label>
+                                                                        <p></p>
+                                                                        <input  class="input2" id="exam" name="exam" type="checkbox" />
+                                                                       <p></p>
+
                 <button class="buttonForm">Vytvořit</button>
             </form>
 </div>

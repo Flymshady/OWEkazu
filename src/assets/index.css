@@ -225,6 +225,35 @@ code {
     color: #999;
     border-bottom: 2px solid #999;
 }
+.input {
+  display: block;
+  margin-left: 46%;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+}
+
+.input2 {
+  display: block;
+
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+}
+
+
 .buttonForm {
                border-color: deepskyblue;
                cursor: pointer;

@@ -37,13 +37,16 @@ class NewDiagnosis extends React.Component{
             }).catch(function (error) {
                 console.error(error)
             });
+            alert("Diagnoza byla uspesne vytvorena");
+            document.getElementById("diagnozaForm").reset();
+
     }
 
     render() {
         return (
         <div>
         <p><b>Vytvoření diagnózy</b></p>
-            <form name="diagnozaForm" onSubmit={this.handleSubmit}>
+            <form name="diagnozaForm" id="diagnozaForm" onSubmit={this.handleSubmit}>
                 <label htmlFor="diagnosis"> Název </label>
                 <input  id="definition" name="definition" type="text" required={'true'}/>
                 <button class="buttonForm">Vytvořit</button>
