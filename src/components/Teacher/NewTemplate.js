@@ -24,7 +24,7 @@ class NewTemplate extends React.Component{
                 object[key] = value;
             });
             var json = JSON.stringify(object);
-            //Tady nwm kam to poslat - pak uz by to mohlo fungovat :D
+
             fetch('https://owe-kazu.herokuapp.com/api/rest/admin/codelist/template', {
                 method: 'POST',
                 headers: {
