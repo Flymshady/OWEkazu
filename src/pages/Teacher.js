@@ -2,14 +2,19 @@ import React from 'react';
 import { NewDiagnosis, NewTemplate, EditDiagnosis, EditTemplate} from '../components/Teacher';
 
 class Teacher extends React.Component {
-    state = {
-    };
+    constructor(){
+        super();
+        this.state = {
+        };
+
+    }
+
 
     render() {
 
             return (
-            <div class="teacher">
-            <label class="Nadpis">Úpravy systému</label>
+            <div className="teacher">
+            <label className="Nadpis">Úpravy systému</label>
                 <p></p>
                 <div className={'Content Grid'}>
                   <NewDiagnosis/>

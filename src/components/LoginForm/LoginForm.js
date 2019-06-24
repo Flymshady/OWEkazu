@@ -10,11 +10,11 @@ const FormLogin =({username, password, handleOnChange, handleOnSubmit}) => {
                 <form onSubmit={handleOnSubmit} className={'login-form'}>
                     <h3>Pro přístup do systému je nutné přihlásit se</h3>
                     <div>
-                        <input type="text" name="username"  value={username} onChange={handleOnChange('username')} required={'true'}/>
+                        <input type="text" name="username"  value={username} onChange={handleOnChange('username')} required={true}/>
                             <label>Uživatelské jméno</label>
                     </div>
                     <div>
-                        <input type="password" name="password" value={password} onChange={handleOnChange('password')} required={'true'}/>
+                        <input type="password" name="password" value={password} onChange={handleOnChange('password')} required={true}/>
                             <label>Heslo</label>
                     </div>
                     <input type="submit" name="" value="Submit"/>

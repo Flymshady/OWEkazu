@@ -2,15 +2,15 @@ import React from 'react';
 import {editDiagnosisUrl} from '../../constants';
 import {Link} from "react-router-dom";
 
-/*function zobrazitSeznam(){
-            var x = document.getElementById("seznam");
-                                       x.style.display = "block";
-            }*/
 
 class EditDiagnosis extends React.Component {
-    state = {
-        diagnosis: [],
-    };
+    constructor() {
+        super();
+        this.state = {
+            diagnosis: [],
+        };
+    }
+
 
     componentDidMount() {
         fetch(editDiagnosisUrl)
@@ -31,10 +31,10 @@ class EditDiagnosis extends React.Component {
 
                     <div className="dropdown-menu">
                         {this.state.diagnosis.map(diagnosisData => (
-                            <Link
+                            <Link key={diagnosisData.id}
                                 className={'dropdown-item'}
                                 to={{pathname : '/diagnosis/',
-                                    state : { diagnosisData : diagnosisData.id }}}
+                                    state : { diagnosisData : diagnosisData.id, diagnosisDefinition : diagnosisData.definition }}}
                             >
                                 {diagnosisData.definition}
                             </Link>

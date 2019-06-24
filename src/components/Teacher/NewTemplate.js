@@ -48,28 +48,28 @@ class NewTemplate extends React.Component{
             <form name="templateForm" id="templateForm" onSubmit={this.handleSubmit}>
                 <label htmlFor="template"> ID  </label>
                 <p></p>
-                <input  id="id" name="id" type="text" required={'true'}/>
+                <input  id="id" name="id" type="text" required={true}/>
                 <p></p>
                  <p></p>
                                                                       <label htmlFor="template">  Title  </label>
                                                                       <p></p>
-                                                                     <input  id="title" name="title" type="text" required={'true'}/>
+                                                                     <input  id="title" name="title" type="text" required={true}/>
                                                                      <p></p>
                                                                       <label htmlFor="template">  Min Bonus  </label>
                                                                       <p></p>
-                                                                     <input  id="minBonus" name="minBonus" type="text" required={'true'}/>
+                                                                     <input  id="minBonus" name="minBonus" type="text" required={true}/>
                                                                      <p></p>
                                                                       <label htmlFor="template">  Max Malus </label>
                                                                       <p></p>
-                                                                     <input  id="maxMalus" name="maxMalus" type="text" required={'true'}/>
+                                                                     <input  id="maxMalus" name="maxMalus" type="text" required={true}/>
                                                                      <p></p>
                                                                       <label htmlFor="template">  Diagnosis  </label>
                                                                       <p></p>
-                                                                     <input  id="diagnosis" name="diagnosis" type="text" required={'true'}/>
+                                                                     <input  id="diagnosis" name="diagnosis" type="text" required={true}/>
                                                                      <p></p>
                                                                      <label htmlFor="template"> Max Price  </label>
                                                                      <p></p>
-                                                                       <input  id="maxPrice" name="maxPrice" type="text" required={'true'}/>
+                                                                       <input  id="maxPrice" name="maxPrice" type="text" required={true}/>
                                                                        <p></p>
                                                                         <label htmlFor="template">  Text  </label>
                                                                          <p></p>
@@ -78,10 +78,10 @@ class NewTemplate extends React.Component{
                                                                       <p></p>
                                                                       <label htmlFor="template">  Exam  </label>
                                                                         <p></p>
-                                                                        <input  class="input2" id="exam" name="exam" type="checkbox" />
+                                                                        <input  className="input2" id="exam" name="exam" type="checkbox" />
                                                                        <p></p>
 
-                <button class="buttonForm">Vytvořit</button>
+                <button className="buttonForm">Vytvořit</button>
             </form>
 </div>
         );

@@ -47,9 +47,6 @@ class PersonalData extends React.Component {
         for(let i in this.state.examsWithTextToSent) {
             this.state.text = this.state.examsWithTextToSent.map(function (val) {
                 if(val.id === id) {
-                    //console.log(val.text);
-                    //var x = document.getElementById("answer1");
-                    //x.style.display = "block";
                     return val.text;
                 }
             })
@@ -78,8 +75,6 @@ class PersonalData extends React.Component {
                     console.log("val title: "+val.title);
                     this.state.imageTitle = val.title;
                     val.imageGroup.images.map(function (val2) {
-                        //var x = document.getElementById("answer2");
-                        //x.style.display = "block";
                         console.log("val 2 title: "+val2.filename);
                         nazev = val2.filename;
                         return val2;
@@ -87,11 +82,7 @@ class PersonalData extends React.Component {
                 }
             })
         }
-
-        //document.getElementById('answer2').innerHTML = this.state.image;
         document.getElementById('answer2').innerHTML = nazev;
-
-
 
         if(this.state.vykresleniImageExam) {
             console.log(this.state.vykresleniImageExam);
@@ -121,18 +112,16 @@ class PersonalData extends React.Component {
         this.state.examsWithImageToSent = this.props.examsWithImageToSent;
         this.state.patientId = this.props.patientId;
         this.state.diagnosis = this.props.diagnosis;
-        //console.log(this.state.personalDataToSent + ',' + this.state.vykresleni);
         return (
             <div>
                 <table className={"table table-borderless"}>{this.state.personalDataToSent.map(function(item, i){
-                    return <div>
-                            <tbody>
-                            <tr key={i}>
+                    return <tbody key={i}>
+                            <tr key={i.id}>
                                 <td width={230}>{item.title}</td>
                                 <td>{item.text}</td>
                             </tr>
                             </tbody>
-                    </div>
+
 
                 })}</table>
 
@@ -140,13 +129,13 @@ class PersonalData extends React.Component {
 
                 <div id={"myDIV"}>
                     <div>{this.state.examsWithTextToSent.map((item, i) => (
-                        <div>
+                        <div key={item.id}>
                             <button onClick={()=>this.clickButton2(item.id)} key={i}>{item.title}</button>
                         </div>
                     ))}</div>
 
                     <div>{this.state.examsWithImageToSent.map((item, i) => (
-                        <div>
+                        <div key={item.id}>
                             <button onClick={() => this.clickButton3(item.id)} key={i}>{item.title}</button>
                         </div>
                         ))}</div>

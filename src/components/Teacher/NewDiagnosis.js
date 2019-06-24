@@ -48,8 +48,8 @@ class NewDiagnosis extends React.Component{
         <p><b>Vytvoření diagnózy</b></p>
             <form name="diagnozaForm" id="diagnozaForm" onSubmit={this.handleSubmit}>
                 <label htmlFor="diagnosis"> Název </label>
-                <input  id="definition" name="definition" type="text" required={'true'}/>
-                <button class="buttonForm">Vytvořit</button>
+                <input  id="definition" name="definition" type="text" required={true}/>
+                <button className="buttonForm">Vytvořit</button>
             </form>
 </div>
         );

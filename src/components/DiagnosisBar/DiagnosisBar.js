@@ -23,9 +23,6 @@ class DiagnosisBar extends React.Component {
     }
 
     render() {
-        //this.state.exams = this.props.exams;
-        //this.state.diagnosisName = this.props.diagnosisName;
-        //this.state.patientId = this.props.patientId;
         return (
             <div>
                 <div>

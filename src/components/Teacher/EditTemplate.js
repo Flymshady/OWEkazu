@@ -4,9 +4,13 @@ import {Link} from "react-router-dom";
 
 
 class EditTemplate extends React.Component {
-    state = {
-        template: [],
-    };
+    constructor (){
+        super();
+        this.state = {
+            template: [],
+        };
+}
+
 
     componentDidMount() {
         fetch(editTemplateUrl)
@@ -28,7 +32,7 @@ class EditTemplate extends React.Component {
                     <div className="dropdown-menu">
 
                         {this.state.template.map(templateData => (
-                            <Link
+                            <Link key={templateData.id}
                                 className={'dropdown-item'}
                                 to={{pathname : '/template/',
                                     state : { templateData : templateData.id }}}

@@ -12,6 +12,7 @@ class Diagnosis extends React.Component {
         this.routeChange = this.routeChange.bind(this);
         this.state = {
             diagnosisId: "",
+            diagnosisDefinition: "",
         }
     }
      routeChange() {
@@ -38,6 +39,7 @@ class Diagnosis extends React.Component {
         var json = JSON.stringify(object);
 
         this.state.diagnosisId = this.props.location.state.diagnosisData;
+        this.state.diagnosisDefinition = this.props.location.state.diagnosisDefinition;
         console.log(this.state.diagnosisId);
         console.log(json);
 
@@ -66,11 +68,11 @@ class Diagnosis extends React.Component {
         return (
             <div className={'Content FlexCenter'}>
                         <div className={'TextCenter'}>
-                            <h2>Nazev: {this.props.location.state.diagnosisData}</h2>
+                            <h2>Nazev: {this.props.location.state.diagnosisDefinition}</h2>
                             <form onSubmit={this.handleSubmit}>
                                 <label>
                                     Novy nazev:
-                                    <input type="text" name="definition"id="definition" required={"true"}/>
+                                    <input type="text" name="definition"id="definition" required={true}/>
                                 </label>
                                 <input onClick={this.routeChange} type="submit" value="Submit" />
                             </form>
