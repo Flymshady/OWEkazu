@@ -50,11 +50,6 @@ class NewTemplate extends React.Component{
             <form name="templateForm" id="templateForm" onSubmit={this.handleSubmit} className={'login-form'}>
 
                 <div>
-                    <input  id="id" name="id" type="text" required={true}/>
-                    <label htmlFor="template"> ID  </label>
-                </div>
-
-                <div>
                     <input  id="title" name="title" type="text" required={true}/>
                     <label htmlFor="template">  Title  </label>
                 </div>

@@ -46,6 +46,38 @@ code {
     overflow-x: hidden;
     padding-top: 20px;
 }
+@media only screen and (max-width: 40em) {
+  .sidenav {
+                 width: 100%;
+                 padding-top: 0px;
+                 height: 35%;
+ position: absolute;
+                 }
+                 .sidenav-cont{
+                 padding-top: 0px;
+                     width: 100%;
+                     height: 30%;
+
+
+                 }
+                 .sidenav a {
+
+                     height: 0%;
+                 }
+                 .sidenav p{
+                 padding-top: 0px;
+                     height: 0%;
+                 }
+                 .sidenav .creators{
+                 padding-top: 0px;
+                     height: 75%;
+
+                 }
+
+
+
+
+}
 .sidenav-cont{
     width: 90%;
     float: right;
